@@ -145,7 +145,7 @@ During installation, configure the installer so that it installs all dependencie
 Brief information about libraries `-- prefix=/home/www/.python-specifies the directory where everything is installed`.
 10.6. Build code from source
 ```bash
-make -j8
+make -j4
 ```
 10.7. Install the assembled product
 ```bash
