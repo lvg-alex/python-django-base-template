@@ -35,7 +35,7 @@ C:\WINDOWS\system32>ssh <user name>@XXX.XXX.XXX.XXX
 ```
 For example, for the user "www" and the ip address "127.0.0.1" will look like (`ssh www@127.0.0.1`).
 
-8. Update repositories and install some initial needed packages:
+6. Update repositories and install some initial needed packages:
 ```bash
 sudo apt-get update
 sudo apt-get install -y vim mosh tmux htop git curl wget unzip zip gcc build-essential make
