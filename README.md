@@ -18,7 +18,11 @@ After executing the command, specify the names of the files where the keys will 
 Keys are created in the directory C:\Users\<username>\ssh\. The public part of the key will be saved in a file named <key_name>.pub. The default name is id_rsa.
 Save the generated key pair on the local machine.
 
-3. 
+3. Use the command line to connect to the VM:
+```bash
+C:\WINDOWS\system32>ssh <user name>@XXX.XXX.XXX.XXX
+```
+For example, for the user "www" and the ip address "127.0.0.1" will look like 'www@127.0.0.1'.
 
 
 # Step 2. Basic Python + Django template with nginx, gunicorn and systemd for Debian.
