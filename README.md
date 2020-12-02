@@ -105,6 +105,66 @@ libfreetype6-dev  –
 libcurl4-openssl-dev  – 
 `.
 
+9. Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh):
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+oh-my-zsh – a convenient set of plugins and configurations over zsh.
+Set zsh as the default shell:
+```bash
+chsh -s $(which zsh)
+```
+Show where zsh is currently located
+```bash
+which zsh
+```
+
+10. Install python 3.9
+Build from source python 3.9, install with prefix to `~/.python` folder.
+10.1. Download sources
+```bash
+wget https://www.python.org/ftp/python/3.9.0/Python-3.9.0.tgz
+```
+10.2. Unzip the source code
+```bash
+tar xvf Python-3.9.*
+```
+10.3. Go to directory
+```bash
+cd Python-3.9.0
+```
+10.4. Create a folder where we will install all Python dependencies
+```bash
+sudo mkdir ~/.python
+```
+10.5. Сonfigure the installer
+During installation, configure the installer so that it installs all dependencies in a specific directory. This allows you to remove dependencies from a single directory, rather than searching for them on disk.
+```bash
+./configure --enable-optimizations --prefix=/home/www/.python
+```
+Brief information about libraries `-- prefix=/home/www/.python-specifies the directory where everything is installed`.
+10.6. Build code from source
+```bash
+make -j8
+```
+10.7. Install the assembled product
+```bash
+sudo make altinstall
+```
+10.8. Update pip
+```bash
+sudo /home/www/python/bin/python3.9 -m pip install -U pip
+```
+10.9. Delete the file with the archive, and source codes
+```bash
+sudo rm -rf Python-3.9.0.tgz Python-3.9.0
+```
+10.10. To check if all files were installed
+```bash
+ls -la
+pwd
+```
+
 ## Step 2. Basic Python + Django template with nginx, gunicorn and systemd for Debian.
 
 This is a basic server configuration template for implementing Python + Django web projects. The template implements the installation and configuration of nginx, gunicorn, and systemd.
