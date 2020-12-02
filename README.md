@@ -153,7 +153,7 @@ sudo make altinstall
 ```
 10.8. Update pip
 ```bash
-sudo /home/www/python/bin/python3.9 -m pip install -U pip
+sudo /home/www/.python/bin/python3.9 -m pip install -U pip
 ```
 10.9. Delete the file with the archive, and source codes
 ```bash
