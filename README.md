@@ -144,7 +144,22 @@ cd metrolog
 ls
 ```
 
-8. To install, run the shell script:
+8. Сheck access rights to folder files
+```bash
+ls -la
+```
+
+9. Grant all access rights to directories and files:
+```bash
+sudo chmod 755 *
+```
+Rights values are represented in both alphabetic and numeric formats (`drwxr-xr-x (755)`).
+Brief information: `d-indicates the file type, i.e. the directory.
+rwx — all access rights for the owner.
+r-x-read and execute permissions for the owner group.
+r-x — the same rights for everyone else.`
+
+10. To install, run the shell script:
 ```bash
 ./install.sh
 ```
@@ -154,15 +169,15 @@ Specify the IP address or domain name (specify the domain name or ip address of 
     'XXX.XXX.XXX.XXX'
 The template implements the installation and configuration of nginx, gunicorn, and systemd.
 
-9. In the Django Configurator, set the database settings (`src/config/settings.py`).
+11. In the Django Configurator, set the database settings (`src/config/settings.py`).
 
-10. Check the status of the gunicorn daemon:
+12. Check the status of the gunicorn daemon:
 ```bash
 sudo systemctl status gunicorn
 ```
 The gunicorn logs are available in 'gunicorn/access. log' and `gunicorn/error. log'.
 
-11. After changing the systemd configuration file, you need to re-read it and then restart the unit:
+13. After changing the systemd configuration file, you need to re-read it and then restart the unit:
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl restart gunicorn
