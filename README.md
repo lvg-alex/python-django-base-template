@@ -157,6 +157,7 @@ sudo /home/www/.python/bin/python3.9 -m pip install -U pip
 ```
 10.9. Delete the file with the archive, and source codes
 ```bash
+cd ..
 sudo rm -rf Python-3.9.0.tgz Python-3.9.0
 ```
 10.10. To check if all files were installed
