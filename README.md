@@ -22,7 +22,7 @@ Save the generated key pair on the local machine.
 ```bash
 C:\WINDOWS\system32>ssh <user name>@XXX.XXX.XXX.XXX
 ```
-For example, for the user "www" and the ip address "127.0.0.1" will look like (`www@127.0.0.1`) (`ssh www@127.0.0.1`).
+For example, for the user "www" and the ip address "127.0.0.1" will look like (`ssh www@127.0.0.1`).
 
 
 # Step 2. Basic Python + Django template with nginx, gunicorn and systemd for Debian.
