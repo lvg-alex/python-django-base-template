@@ -10,7 +10,7 @@ Shows how to set up a clean Debian server for Python and Django projects. A secu
 cmd
 ```
 
-2. Create user, setup SSH.
+### 2. Create user, setup SSH.
 Configure a connection to a Debian VM using SSH. Create a new key using the ssh-keygen command. Execute the command:
 ```bash
 ssh-keygen -t rsa -b 2048
