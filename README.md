@@ -230,16 +230,19 @@ Specify the IP address or domain name (specify the domain name or ip address of 
     'XXX.XXX.XXX.XXX'
 The template implements the installation and configuration of nginx, gunicorn, and systemd.
 
-11. In the Django Configurator, set the database settings (`src/config/settings.py`).
-
-12. Check the status of the gunicorn daemon:
+11. Check the status of the gunicorn daemon:
 ```bash
 sudo systemctl status gunicorn
 ```
 The gunicorn logs are available in 'gunicorn/access. log' and `gunicorn/error. log'.
 
-13. After changing the systemd configuration file, you need to re-read it and then restart the unit:
+12. After changing the systemd configuration file, you need to re-read it and then restart the unit:
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl restart gunicorn
+```
+
+13. In the Django Configurator, set the database settings (`src/config/settings.py`).
+```bash
+
 ```
