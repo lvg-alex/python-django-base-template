@@ -2,12 +2,12 @@
 
 It shows the sequence of actions that must be performed in order to install all the necessary packages on a clean Debian operating system and prepare the system for working with Django.
 
-# I Debian Server Set Up for Django Inctruction
+# Step 1. Debian Server Set Up for Django Inctruction
 Shows how to set up a clean Debian server for Python and Django projects. A secure SSH connection is implemented, packages are installed from Debian repositories and source code, and the Debian server is prepared to work with Django.
 
 // TODO
 
-# II Basic Python + Django template with nginx, gunicorn and systemd for Debian.
+# Step 2. Basic Python + Django template with nginx, gunicorn and systemd for Debian.
 
 This is a basic server configuration template for implementing Python + Django web projects. The template implements the installation and configuration of nginx, gunicorn, and systemd.
 
