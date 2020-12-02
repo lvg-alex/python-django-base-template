@@ -154,10 +154,10 @@ ls -la
 sudo chmod 755 *
 ```
 Rights values are represented in both alphabetic and numeric formats (`drwxr-xr-x (755)`).
-Brief information: `d-indicates the file type, i.e. the directory.
-rwx — all access rights for the owner.
-r-x-read and execute permissions for the owner group.
-r-x — the same rights for everyone else.`
+Brief information: `d-indicates the file type, i.e. the directory;
+rwx — all access rights for the owner;
+r-x-read and execute permissions for the owner group;
+r-x — the same rights for everyone else`.
 
 10. To install, run the shell script:
 ```bash
