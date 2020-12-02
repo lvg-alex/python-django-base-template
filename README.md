@@ -44,6 +44,21 @@ gcc – the compiler to build the sources;
 build-essential – a compiler for building sources is required for building from sources;
 make – required for building from source`.
 
+5. Configure SSH so that the user <user name> can connect via SSH.
+```bash
+sudo vim /etc/ssh/sshd_config
+``` 
+To add to the configuration file
+```sshd_config
+    AllowUsers <user name>
+    PermitRootLogin no
+    PasswordAuthentication no
+``` 
+Brief information about packages `AllowUsers <user name> – the user will have access to; 
+    PermitRootLogin no – disable login for root;
+    PasswordAuthentication no – disable password login so that you can only log in using ssh keys`.
+
+
 ## Step 2. Basic Python + Django template with nginx, gunicorn and systemd for Debian.
 
 This is a basic server configuration template for implementing Python + Django web projects. The template implements the installation and configuration of nginx, gunicorn, and systemd.
