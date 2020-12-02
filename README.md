@@ -19,11 +19,30 @@ After executing the command, specify the names of the files where the keys will 
 Keys are created in the directory C:\Users\<username>\ssh\. The public part of the key will be saved in a file named <key_name>.pub. The default name is id_rsa.
 Save the generated key pair on the local machine.
 
-3. Use the command line to connect to the VM:
+3. Connect through SSH to remote Debian server.
+Use the command line to connect to the VM:
 ```bash
 C:\WINDOWS\system32>ssh <user name>@XXX.XXX.XXX.XXX
 ```
 For example, for the user "www" and the ip address "127.0.0.1" will look like (`ssh www@127.0.0.1`).
+
+4. Update repositories and install some initial needed packages:
+```bash
+sudo apt-get update
+sudo apt-get install -y vim mosh tmux htop git curl wget unzip zip gcc build-essential make
+```
+vim – advanced text editor;
+mosh – improved ssh, automatically reconnects the connection on the mobile device;
+tmux – terminal multiplexer;
+htop – process monitor;
+git – repository;
+curl – for uploading external files, you can use it during testing;
+wget – for uploading external files;
+unzip – обертка для работы с zip-архивом;
+zip – wrapper for working with a zip archive;
+gcc – the compiler to build the sources;
+build-essential – a compiler for building sources is required for building from sources;
+make – required for building from source.
 
 
 ## Step 2. Basic Python + Django template with nginx, gunicorn and systemd for Debian.
