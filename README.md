@@ -5,18 +5,48 @@ This is a basic server configuration template for implementing Python + Django w
 
 The server configuration requires the following actions:
 1. Create the "code" folder.
-```
+```bash
 mkdir ~/code
 ```
 
 2. Go to the "code" folder.
+```bash
+cd ~/code
+```
 
-To install, run the shell script:
+3. Сopy git to the server
+```bash
+git clone https://github.com/lvg-alex/python-django-base-template.git
+```
+4. Check the "python-django-base-template" directory loaded on the server.
+```bash
+ls
+```
+
+5. Rename the "python-django-base-template" folder to "metrolog".
+```bash
+my python-django-base-template metrolog
+```
+
+6. Go to the "metrolog" folder.
+```bash
+cd metrolog
+```
+
+7. View the contents of the "metrolog" folder.
+```bash
+ls
+```
+
+8. To install, run the shell script:
 ```bash
 ./install.sh
 ```
-Specify the Python interpreter, and the domain name:
-''
+Specify the Python interpreter (used to create a virtual environment):
+    Python interpreter: '/home/www/.python/bin/python3.9'
+Specify the IP address or domain name (specify the domain name or ip address of the hosting service):
+    'XXX.XXX.XXX.XXX'
+The template implements the installation and configuration of nginx, gunicorn, and systemd.
 
 In the Django Configurator, set the database settings (`src/config/settings.py`).
 
