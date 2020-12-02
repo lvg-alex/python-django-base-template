@@ -58,6 +58,52 @@ Brief information about packages `AllowUsers <user name> – the user will have 
     PermitRootLogin no – disable login for root;
     PasswordAuthentication no – disable password login so that you can only log in using ssh keys`.
 
+6. Restart SSH server, change `www` user password:
+```bash
+sudo service ssh restart
+``` 
+7. Set the password for the user "www".
+```bash
+sudo passwd www
+``` 
+
+8. To install support libraries for the correct operation of a Python:
+```bash
+sudo apt-get install -y zsh tree redis-server nginx zlib1g-dev libbz2-dev libreadline-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev liblzma-dev python3-dev python-pil python3-lxml libxslt1-dev python-libxml2 python-libxslt1 libffi-dev libssl-dev python-dev gnumeric libsqlite3-dev libpq-dev libxml2-dev libxslt1-dev libjpeg-dev libfreetype6-dev libcurl4-openssl-dev
+```
+Brief information about libraries `
+-y  - flag to prevent the installer from asking for confirmation of the package installation;
+zsh – alternative to bash;
+tree  – to view the folder structure;
+redis-server  – storage;
+nginx  – web server;
+zlib1g-dev  – for correct operation of Python libraries
+libbz2-dev  – 
+libreadline-dev  – 
+llvm  – 
+libncurses5-dev  – 
+libncursesw5-dev  – 
+xz-utils  – 
+tk-dev  – 
+liblzma-dev  – 
+python3-dev  –
+python-pil  – 
+python3-lxml  – to work correctly with xml inside Python
+libxslt1-dev  – 
+python-libxml2  – 
+python-libxslt1  – 
+libffi-dev  – 
+libssl-dev  – to work with ssl
+python-dev  – 
+gnumeric  – 
+libsqlite3-dev  – 
+libpq-dev  – 
+libxml2-dev  – 
+libxslt1-dev  – 
+libjpeg-dev  – 
+libfreetype6-dev  – 
+libcurl4-openssl-dev  – 
+`.
 
 ## Step 2. Basic Python + Django template with nginx, gunicorn and systemd for Debian.
 
