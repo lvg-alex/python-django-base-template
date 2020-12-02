@@ -31,7 +31,7 @@ For example, for the user "www" and the ip address "127.0.0.1" will look like (`
 sudo apt-get update
 sudo apt-get install -y vim mosh tmux htop git curl wget unzip zip gcc build-essential make
 ```
-(`vim – advanced text editor;
+Brief information about packages `vim – advanced text editor;
 mosh – improved ssh, automatically reconnects the connection on the mobile device;
 tmux – terminal multiplexer;
 htop – process monitor;
@@ -42,7 +42,7 @@ unzip – обертка для работы с zip-архивом;
 zip – wrapper for working with a zip archive;
 gcc – the compiler to build the sources;
 build-essential – a compiler for building sources is required for building from sources;
-make – required for building from source.`)
+make – required for building from source`.
 
 ## Step 2. Basic Python + Django template with nginx, gunicorn and systemd for Debian.
 
