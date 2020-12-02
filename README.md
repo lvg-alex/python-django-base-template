@@ -19,14 +19,23 @@ After executing the command, specify the names of the files where the keys will 
 Keys are created in the directory C:\Users\<username>\ssh\. The public part of the key will be saved in a file named <key_name>.pub. The default name is id_rsa.
 Save the generated key pair on the local machine.
 
-3. Connect through SSH to remote Debian server.
+3. Restart SSH server, change `www` user password:
+```bash
+sudo service ssh restart
+``` 
+4. Set the password for the user "www".
+```bash
+sudo passwd www
+``` 
+
+5. Connect through SSH to remote Debian server.
 Use the command line to connect to the VM:
 ```bash
 C:\WINDOWS\system32>ssh <user name>@XXX.XXX.XXX.XXX
 ```
 For example, for the user "www" and the ip address "127.0.0.1" will look like (`ssh www@127.0.0.1`).
 
-4. Update repositories and install some initial needed packages:
+6. Update repositories and install some initial needed packages:
 ```bash
 sudo apt-get update
 sudo apt-get install -y vim mosh tmux htop git curl wget unzip zip gcc build-essential make
@@ -44,7 +53,7 @@ gcc – the compiler to build the sources;
 build-essential – a compiler for building sources is required for building from sources;
 make – required for building from source`.
 
-5. Configure SSH so that the user <user name> can connect via SSH.
+7. Configure SSH so that the user <user name> can connect via SSH.
 ```bash
 sudo vim /etc/ssh/sshd_config
 ``` 
@@ -57,15 +66,6 @@ To add to the configuration file
 Brief information about packages `AllowUsers <user name> – the user will have access to; 
     PermitRootLogin no – disable login for root;
     PasswordAuthentication no – disable password login so that you can only log in using ssh keys`.
-
-6. Restart SSH server, change `www` user password:
-```bash
-sudo service ssh restart
-``` 
-7. Set the password for the user "www".
-```bash
-sudo passwd www
-``` 
 
 8. To install support libraries for the correct operation of a Python:
 ```bash
