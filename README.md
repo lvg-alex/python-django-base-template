@@ -1,5 +1,7 @@
 # python-django-base-template
 
+It shows the sequence of actions that must be performed in order to install all the necessary packages on a clean Debian operating system and prepare the system for working with Django.
+
 # I Debian Server Set Up for Django Inctruction
 Shows how to set up a clean Debian server for Python and Django projects. A secure SSH connection is implemented, packages are installed from Debian repositories and source code, and the Debian server is prepared to work with Django.
 
