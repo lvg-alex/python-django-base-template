@@ -131,7 +131,7 @@ ls
 
 5. Rename the "python-django-base-template" folder to "metrolog".
 ```bash
-my python-django-base-template metrolog
+mv python-django-base-template metrolog
 ```
 
 6. Go to the "metrolog" folder.
