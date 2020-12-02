@@ -35,7 +35,21 @@ C:\WINDOWS\system32>ssh <user name>@XXX.XXX.XXX.XXX
 ```
 For example, for the user "www" and the ip address "127.0.0.1" will look like (`ssh www@127.0.0.1`).
 
-6. Update repositories and install some initial needed packages:
+6. Configure SSH so that the user <user name> can connect via SSH.
+```bash
+sudo vim /etc/ssh/sshd_config
+``` 
+To add to the configuration file
+```sshd_config
+    AllowUsers <user name>
+    PermitRootLogin no
+    PasswordAuthentication no
+``` 
+Brief information about packages `AllowUsers <user name> – the user will have access to; 
+    PermitRootLogin no – disable login for root;
+    PasswordAuthentication no – disable password login so that you can only log in using ssh keys`.
+    
+7. Update repositories and install some initial needed packages:
 ```bash
 sudo apt-get update
 sudo apt-get install -y vim mosh tmux htop git curl wget unzip zip gcc build-essential make
@@ -52,20 +66,6 @@ zip – wrapper for working with a zip archive;
 gcc – the compiler to build the sources;
 build-essential – a compiler for building sources is required for building from sources;
 make – required for building from source`.
-
-7. Configure SSH so that the user <user name> can connect via SSH.
-```bash
-sudo vim /etc/ssh/sshd_config
-``` 
-To add to the configuration file
-```sshd_config
-    AllowUsers <user name>
-    PermitRootLogin no
-    PasswordAuthentication no
-``` 
-Brief information about packages `AllowUsers <user name> – the user will have access to; 
-    PermitRootLogin no – disable login for root;
-    PasswordAuthentication no – disable password login so that you can only log in using ssh keys`.
 
 8. To install support libraries for the correct operation of a Python:
 ```bash
