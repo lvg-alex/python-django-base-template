@@ -1,5 +1,11 @@
 # python-django-base-template
-Basic Python + Django template with nginx, gunicorn and systemd for Debian.
+
+# I Debian Server Set Up for Django Inctruction
+Shows how to set up a clean Debian server for Python and Django projects. A secure SSH connection is implemented, packages are installed from Debian repositories and source code, and the Debian server is prepared to work with Django.
+
+// TODO
+
+# II Basic Python + Django template with nginx, gunicorn and systemd for Debian.
 
 This is a basic server configuration template for implementing Python + Django web projects. The template implements the installation and configuration of nginx, gunicorn, and systemd.
 
