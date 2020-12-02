@@ -2,7 +2,7 @@
 
 It shows the sequence of actions that must be performed in order to install all the necessary packages on a clean Debian operating system and prepare the system for working with Django.
 
-# Step 1. Debian Server Set Up for Django Instructions
+## Step 1. Debian Server Set Up for Django Instructions
 Shows how to set up a clean Debian server for Python and Django projects. A secure SSH connection is implemented, packages are installed from Debian repositories and source code, and the Debian server is prepared to work with Django.
 
 1. Launch cmd.exe () or powershell.exe.
@@ -10,8 +10,8 @@ Shows how to set up a clean Debian server for Python and Django projects. A secu
 cmd
 ```
 
-## Create user, setup SSH
-2. Configure a connection to a Debian VM using SSH. Create a new key using the ssh-keygen command. Execute the command:
+2. Create user, setup SSH.
+Configure a connection to a Debian VM using SSH. Create a new key using the ssh-keygen command. Execute the command:
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
@@ -26,7 +26,7 @@ C:\WINDOWS\system32>ssh <user name>@XXX.XXX.XXX.XXX
 For example, for the user "www" and the ip address "127.0.0.1" will look like (`ssh www@127.0.0.1`).
 
 
-# Step 2. Basic Python + Django template with nginx, gunicorn and systemd for Debian.
+## Step 2. Basic Python + Django template with nginx, gunicorn and systemd for Debian.
 
 This is a basic server configuration template for implementing Python + Django web projects. The template implements the installation and configuration of nginx, gunicorn, and systemd.
 
