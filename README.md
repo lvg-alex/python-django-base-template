@@ -2,8 +2,7 @@
 
 It shows the sequence of actions that must be performed in order to install all the necessary packages on a clean Debian operating system and prepare the system for working with Django.
 
-## Step 1. Debian Server Set Up for Django Instructions
-Shows how to set up a clean Debian server for Python and Django projects. A secure SSH connection is implemented, packages are installed from Debian repositories and source code, and the Debian server is prepared to work with Django.
+## Step 1. Configure a connection to a Debian VM using SSH
 
 1. Launch cmd.exe () or powershell.exe.
 ```bash
@@ -23,6 +22,7 @@ Save the generated key pair on the local machine.
 ```bash
 sudo service ssh restart
 ``` 
+
 4. Set the password for the user "www".
 ```bash
 sudo passwd www
@@ -35,7 +35,11 @@ C:\WINDOWS\system32>ssh <user name>@XXX.XXX.XXX.XXX
 ```
 For example, for the user "www" and the ip address "127.0.0.1" will look like (`ssh www@127.0.0.1`).
 
-6. Update repositories and install some initial needed packages:
+
+## Step 2. Debian Server Set Up for Django Instructions
+Shows how to set up a clean Debian server for Python and Django projects. A secure SSH connection is implemented, packages are installed from Debian repositories and source code, and the Debian server is prepared to work with Django.
+
+1. Update repositories and install some initial needed packages:
 ```bash
 sudo apt-get update
 sudo apt-get install -y vim mosh tmux htop git curl wget unzip zip gcc build-essential make
@@ -53,7 +57,7 @@ gcc – the compiler to build the sources;
 build-essential – a compiler for building sources is required for building from sources;
 make – required for building from source`.
 
-7. Configure SSH so that the user <user name> can connect via SSH.
+2. Configure SSH so that the user <user name> can connect via SSH.
 ```bash
 sudo vim /etc/ssh/sshd_config
 ``` 
@@ -67,7 +71,7 @@ Brief information about packages `AllowUsers <user name> – the user will have 
     PermitRootLogin no – disable login for root;
     PasswordAuthentication no – disable password login so that you can only log in using ssh keys`.
 
-8. To install support libraries for the correct operation of a Python:
+3. To install support libraries for the correct operation of a Python:
 ```bash
 sudo apt-get install -y zsh tree redis-server nginx zlib1g-dev libbz2-dev libreadline-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev liblzma-dev python3-dev python-pil python3-lxml libxslt1-dev python-libxml2 python-libxslt1 libffi-dev libssl-dev python-dev gnumeric libsqlite3-dev libpq-dev libxml2-dev libxslt1-dev libjpeg-dev libfreetype6-dev libcurl4-openssl-dev
 ```
@@ -105,7 +109,7 @@ libfreetype6-dev  –
 libcurl4-openssl-dev  – 
 `.
 
-9. Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh):
+4. Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh):
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
@@ -119,55 +123,66 @@ Show where zsh is currently located
 which zsh
 ```
 
-10. Install python 3.9
+5. Install python 3.9
 Build from source python 3.9, install with prefix to `~/.python` folder.
-10.1. Download sources
+5.1. Download sources
 ```bash
 wget https://www.python.org/ftp/python/3.9.0/Python-3.9.0.tgz
 ```
-10.2. Unzip the source code
+5.2. Unzip the source code
 ```bash
 tar xvf Python-3.9.*
 ```
-10.3. Go to directory
+5.3. Go to directory
 ```bash
 cd Python-3.9.0
 ```
-10.4. Create a folder where we will install all Python dependencies
+5.4. Create a folder where we will install all Python dependencies
 ```bash
 sudo mkdir ~/.python
 ```
-10.5. Сonfigure the installer
+5.5. Сonfigure the installer
 During installation, configure the installer so that it installs all dependencies in a specific directory. This allows you to remove dependencies from a single directory, rather than searching for them on disk.
 ```bash
 ./configure --enable-optimizations --prefix=/home/www/.python
 ```
 Brief information about libraries `-- prefix=/home/www/.python-specifies the directory where everything is installed`.
 
-10.6. Build code from source
+5.6. Build code from source
 ```bash
 make -j4
 ```
-10.7. Install the assembled product
+5.7. Install the assembled product
 ```bash
 sudo make altinstall
 ```
-10.8. Update pip
+5.8. Update pip
 ```bash
 sudo /home/www/.python/bin/python3.9 -m pip install -U pip
 ```
-10.9. Delete the file with the archive, and source codes
+5.9. Delete the file with the archive, and source codes
 ```bash
 cd ..
 sudo rm -rf Python-3.9.0.tgz Python-3.9.0
 ```
-10.10. To check if all files were installed
+5.10. To check if all files were installed
 ```bash
 ls -la
 pwd
 ```
 
-## Step 2. Basic Python + Django template with nginx, gunicorn and systemd for Debian.
+6. Сhange the color scheme in VIM
+```bash
+
+```
+
+7. Configure tmux
+```bash
+
+```
+
+
+## Step 3. Basic Python + Django template with nginx, gunicorn and systemd for Debian.
 
 This is a basic server configuration template for implementing Python + Django web projects. The template implements the installation and configuration of nginx, gunicorn, and systemd.
 
