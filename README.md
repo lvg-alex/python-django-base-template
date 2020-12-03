@@ -143,6 +143,7 @@ During installation, configure the installer so that it installs all dependencie
 ./configure --enable-optimizations --prefix=/home/www/.python
 ```
 Brief information about libraries `-- prefix=/home/www/.python-specifies the directory where everything is installed`.
+
 10.6. Build code from source
 ```bash
 make -j4
