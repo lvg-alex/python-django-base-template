@@ -300,10 +300,10 @@ Activate the created environment
 Find the root directory of the Django module:
 ```bash
 python -c "
-> import sys
-> sys.path = sys.path[1:]
-> import django
-> print(django.__path__)"
+import sys
+sys.path = sys.path[1:]
+import django
+print(django.__path__)"
 ```
 Example of the command execution result:
 `['/home/www/code/metrolog/env/lib/python3.9/site-packages/django']`
