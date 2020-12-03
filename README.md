@@ -4,7 +4,7 @@ It shows the sequence of actions that must be performed in order to install all 
 
 ## Step 1. Configure a connection to a Debian VM using SSH
 
-1. Launch cmd.exe () or powershell.exe.
+1. Launch cmd.exe or powershell.exe.
 ```bash
 cmd
 ```
