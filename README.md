@@ -174,10 +174,7 @@ pwd
 6. Сhange the color scheme in VIM
 
 In Vim, you can use different color schemes. You can configure the scheme by changing the configuration file. For a list of existing color schemes, see the directory ` '/usr/share/vim/vim_version/colors`.
-To change the scheme to `desert`, run the command in vim (press ESC, enter the command, and press ENTER):
-```Vim
-: colorscheme desert
-```
+To change the scheme to `desert`, run the command `: colorscheme desert` in vim (press ESC, enter the command, and press ENTER).
 Changes will only apply during the current editing session.
 
 In order for the settings to work you always need to configure the configuration file:
