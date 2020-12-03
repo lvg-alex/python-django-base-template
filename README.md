@@ -262,6 +262,16 @@ python -c "
 Example of the command execution result:
 `['/home/www/code/metrolog/env/lib/python3.9/site-packages/django']`
 
+Static files for the admin panel are located in contrib/admin/static/admin/:
+```bash
+ls -l /home/www/code/metrolog/env/lib/python3.9/site-packages/django/contrib/admin/static/admin/
+```
+Example of the command execution result:
+`total 16
+drwxr-xr-x 3 www www 4096 Dec  2 21:44 css
+drwxr-xr-x 2 www www 4096 Dec  2 21:44 fonts
+drwxr-xr-x 3 www www 4096 Dec  2 21:44 img
+drwxr-xr-x 4 www www 4096 Dec  2 21:44 js`
 
 14. In the Django Configurator, set the database settings (`src/config/settings.py`).
 ```bash
