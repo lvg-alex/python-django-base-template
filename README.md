@@ -189,7 +189,16 @@ Add to the file
     colorscheme desert
 ```
 
-7. Configure a non-standard tmux configuration
+7. For convenience of further configuration, create a session in the terminal multiplexer
+```bash
+tmux new-session -s dev
+```
+Add a panel (split the screen horizontally): `Ctrl+b    "`
+Switch between panels `Ctrl+b + arrow`. The arrow indicates the direction in which to switch the panel.
+Log out of the session `Ctrl+b + d`.
+Connect to a terminal multiplexer session named " dev": `tmux attach-session -t dev`.
+
+8. Configure a non-standard tmux configuration
 ```bash
 cd
 git clone https://github.com/gpakosz/.tmux.git
@@ -279,16 +288,7 @@ sudo systemctl daemon-reload
 sudo systemctl restart gunicorn
 ```
 
-13. For convenience of further configuration, create a session in the terminal multiplexer
-```bash
-tmux new-session -s dev
-```
-Add a panel (split the screen horizontally): `Ctrl+b    "`
-Switch between panels `Ctrl+b + arrow`. The arrow indicates the direction in which to switch the panel.
-Log out of the session `Ctrl+b + d`.
-Connect to a terminal multiplexer session named " dev": `tmux attach-session -t dev`.
-
-14. Configure the display of the design on the nginx server.
+13. Configure the display of the design on the nginx server.
 Go to the project directory
 ```bash
 cd code/metrolog/
