@@ -302,8 +302,11 @@ Add:
 
 Check the NGINX configuration:
 ```bash
-nginx -t
+sudo nginx -t
 ```
+Example of the command execution result (on success): 
+    `nginx: the configuration file /etc/nginx/nginx.conf syntax is ok`
+    `nginx: configuration file /etc/nginx/nginx.conf test is successful`
 
 14. In the Django Configurator, set the database settings (`src/config/settings.py`).
 ```bash
