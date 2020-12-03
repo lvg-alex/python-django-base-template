@@ -177,13 +177,13 @@ In Vim, you can use different color schemes. You can configure the scheme by cha
 To change the scheme to `desert`, run the command `: colorscheme desert` in vim (press ESC, enter the command, and press ENTER).
 Changes will only apply during the current editing session.
 
-In order for the settings to work you always need to configure the configuration file:
+To make the settings always work you need to configure the configuration file:
 ```bash
 cd
 ls -la
 vim .vimrc
 ```
-To add to the file
+Add to the file
 ```bash
     syntax on
     colorscheme desert
