@@ -191,11 +191,19 @@ To add to the file
     colorscheme desert
 ```
 
-7. Configure tmux
+7. Configure a non-standard tmux configuration
 ```bash
-
+cd
+git clone https://github.com/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf
+cp .tmux/.tmux.conf.local .
 ```
-
+Save the changes, press `Ctrl+b :`, then to restart tmux run the command:
+```bash
+source ~/. tmux. conf
+```
+You can also use `Ctrl+b :` and then `r` to apply the configuration parameters.
+The interface will change.
 
 ## Step 3. Basic Python + Django template with nginx, gunicorn and systemd for Debian.
 
