@@ -234,7 +234,7 @@ The template implements the installation and configuration of nginx, gunicorn, a
 ```bash
 sudo systemctl status gunicorn
 ```
-The gunicorn logs are available in 'gunicorn/access. log' and `gunicorn/error. log'.
+The gunicorn logs are available in 'gunicorn/access. log' and `gunicorn/error. log`.
 
 12. After changing the systemd configuration file, you need to re-read it and then restart the unit:
 ```bash
@@ -243,9 +243,25 @@ sudo systemctl restart gunicorn
 ```
 
 13. Configure the display of the design on the nginx server.
+Go to the project directory
 ```bash
-
+cd code/metrolog/
 ```
+Activate the created environment
+```bash
+. env/bin/activate
+```
+Find the root directory of the Django module:
+```bash
+python -c "
+> import sys
+> sys.path = sys.path[1:]
+> import django
+> print(django.__path__)"
+```
+Example of the command execution result:
+`['/home/www/code/metrolog/env/lib/python3.9/site-packages/django']`
+
 
 14. In the Django Configurator, set the database settings (`src/config/settings.py`).
 ```bash
