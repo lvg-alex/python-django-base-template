@@ -242,7 +242,14 @@ sudo systemctl daemon-reload
 sudo systemctl restart gunicorn
 ```
 
-13. Configure the display of the design on the nginx server.
+13. For convenience of further configuration, create a session in the terminal multiplexer
+```bash
+tmux new-session -s dev
+```
+Add a panel (split the screen horizontally): `Ctrl+b    "`
+Switch between panels `Ctrl+b + arrow`. The arrow indicates the direction in which to switch the panel.
+
+14. Configure the display of the design on the nginx server.
 Go to the project directory
 ```bash
 cd code/metrolog/
@@ -272,6 +279,25 @@ drwxr-xr-x 3 www www 4096 Dec  2 21:44 css
 drwxr-xr-x 2 www www 4096 Dec  2 21:44 fonts
 drwxr-xr-x 3 www www 4096 Dec  2 21:44 img
 drwxr-xr-x 4 www www 4096 Dec  2 21:44 js`
+
+Create an alias for /static/ in the NGINX configuration:
+```bash
+vim nginx/site.conf
+```
+Delete:
+```site.conf
+    location /static/ {
+        root /home/www/code/metrolog/static;
+    }
+```
+Add:
+```site.conf
+    location /static/ {
+        alias /home/www/code/metrolog/env/lib/python3.9/site-packages/django/contrib/admin/static/;
+        expires modified +1w;
+    }
+```
+
 
 14. In the Django Configurator, set the database settings (`src/config/settings.py`).
 ```bash
