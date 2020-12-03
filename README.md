@@ -298,6 +298,10 @@ Add:
     }
 ```
 
+Check the NGINX configuration:
+```bash
+nginx -t
+```
 
 14. In the Django Configurator, set the database settings (`src/config/settings.py`).
 ```bash
