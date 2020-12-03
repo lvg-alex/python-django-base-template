@@ -242,7 +242,12 @@ sudo systemctl daemon-reload
 sudo systemctl restart gunicorn
 ```
 
-13. In the Django Configurator, set the database settings (`src/config/settings.py`).
+13. Configure the display of the design on the nginx server.
+```bash
+
+```
+
+14. In the Django Configurator, set the database settings (`src/config/settings.py`).
 ```bash
 
 ```
