@@ -379,9 +379,57 @@ export LC_ALL=ru_RU.UTF-8 ; \
 sudo locale-gen ru_RU.UTF-8 ; \
 sudo dpkg-reconfigure locales
 ```
+Add locales to `/etc/profile`:
+```bash
+sudo vim /etc/profile
+    export LANGUAGE=ru_RU.UTF-8
+    export LANG=ru_RU.UTF-8
+    export LC_ALL=ru_RU.UTF-8
+```
 
+2. Install and base configure PostgreSQL (version 11)
+```bash
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - ; \
+RELEASE=$(lsb_release -cs) ; \
+echo "deb http://apt.postgresql.org/pub/repos/apt/ ${RELEASE}"-pgdg main | sudo tee  /etc/apt/sources.list.d/pgdg.list ; \
+sudo apt update ; \
+sudo apt -y install postgresql-11
+```
 
-2. In the Django Configurator, set the database settings (`src/config/settings.py`).
+3. Change `postges` password, create clear database named `metrolog_db`:
+```bash
+sudo passwd postgres
+```
+Example of the command execution result (on success): 
+    `New password:`
+    `Retype new password:`
+    `passwd: password updated successfully`
+    
+4. Log in to the DBMS as a user
+```bash
+su postgres
+```
+Example of the command execution result (on success): 
+    `Password:`
+    `postgres@python-dev:/home/www/code/metrolog$`
+
+5. Export a directory
+```bash
+export PATH=$PATH:/usr/lib/postgresql/11/bin
+```
+
+6. Create metrolog_db database
+```bash
+createdb --encoding UNICODE metrolog_db --username postgres
+exit
+```
+
+7. Create `www_dbms` db user and grand privileges to him:
+```bash
+
+```
+
+8. In the Django Configurator, set the database settings (`src/config/settings.py`).
 ```bash
 
 ```
