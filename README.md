@@ -426,9 +426,27 @@ exit
 
 7. Create `www_dbms` db user and grand privileges to him:
 ```bash
-
+sudo -u postgres psql
 ```
+- Сreate a user with a password using the command:
+```postgres
+    create user www_dbms with password '<your password>';
+```
+Example of the command execution result (on success): 
+    `psql (11.10 (Debian 11.10-1.pgdg100+1))`
+    `Type "help" for help.`
+    `    `
+    `postgres=# create user www_dbms with password '1q2w*****7';`
+    `CREATE ROLE`
 
+- Allow the user to create a database:
+```postgres
+ALTER USER www_dbms CREATEDB;
+```
+Example of the command execution result (on success): 
+    `postgres=# ALTER USER www_dbms CREATEDB;`
+    `ALTER ROLE`
+    
 8. In the Django Configurator, set the database settings (`src/config/settings.py`).
 ```bash
 
