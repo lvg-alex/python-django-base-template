@@ -443,7 +443,7 @@ Example of the command execution result (on success): \
 ```postgres
 ALTER USER www_dbms CREATEDB;
 ```
-Example of the command execution result (on success):\ 
+Example of the command execution result (on success): \ 
 `   postgres=# ALTER USER www_dbms CREATEDB;`\
 `   ALTER ROLE`
     
