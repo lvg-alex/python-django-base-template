@@ -539,9 +539,8 @@ psql -h localhost metrolog_db www_dbms  < dump.sql
 vim src/config/settings.py
 ```
 Example of the command execution result (on success):  
-
-# Database
 `...`\
+`# Database`\
 `# https://docs.djangoproject.com/en/2.2/ref/settings/#databases`\
 `   DATABASES = {`\
 `       'default': {`\
