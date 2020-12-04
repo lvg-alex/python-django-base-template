@@ -324,7 +324,7 @@ Create an alias for /static/ in the NGINX configuration:
 vim nginx/site.conf
 ```
 
-Удалить из файла `site.conf`:
+Delete from the `site.conf`file:
 ```site.conf
     location /static/ {
         root /home/www/code/metrolog/static;
@@ -337,7 +337,7 @@ Recursively copying the `/home/www/code/metrolog/env/lib/python3.9/site-packages
 ```bash
 cp -r /home/www/code/metrolog/env/lib/python3.9/site-packages/django/contrib/admin/static/ /home/www/code/metrolog/static
 ```
-add
+Add to the file `site.conf`:
 ```site.conf
     location /static/ {
         alias /home/www/code/metrolog/static/;
@@ -346,7 +346,7 @@ add
 ```   
     
 - the second:
-add
+Add to the file `site.conf`:
 ```site.conf
     location /static/ {
         alias /home/www/code/metrolog/env/lib/python3.9/site-packages/django/contrib/admin/static/;
@@ -367,7 +367,21 @@ Restart the server:
 sudo service nginx restart
 ```
 
-14. In the Django Configurator, set the database settings (`src/config/settings.py`).
+## Step 4. Install and configure PostgreSQL
+To configure a PostgreSQL + Python + Django bundle, follow these steps:
+
+1. Сonfigure locale
+```bash
+sudo localedef ru_RU.UTF-8 -i ru_RU -fUTF-8 ; \
+export LANGUAGE=ru_RU.UTF-8 ; \
+export LANG=ru_RU.UTF-8 ; \
+export LC_ALL=ru_RU.UTF-8 ; \
+sudo locale-gen ru_RU.UTF-8 ; \
+sudo dpkg-reconfigure locales
+```
+
+
+2. In the Django Configurator, set the database settings (`src/config/settings.py`).
 ```bash
 
 ```
