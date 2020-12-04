@@ -323,13 +323,30 @@ Create an alias for /static/ in the NGINX configuration:
 ```bash
 vim nginx/site.conf
 ```
-Delete:
+
+Удалить из файла `site.conf`:
 ```site.conf
     location /static/ {
         root /home/www/code/metrolog/static;
     }
 ```
-Add:
+
+There are alternative options:
+- the first (is preferred)
+Recursively copying the `/home/www/code/metrolog/env/lib/python3.9/site-packages/django/contrib/admin/static/` directory from the current location to the new `/home/www/code/metrolog/static` directory:
+```bash
+cp -r /home/www/code/metrolog/env/lib/python3.9/site-packages/django/contrib/admin/static/ /home/www/code/metrolog/static
+```
+add
+```site.conf
+    location /static/ {
+        alias /home/www/code/metrolog/static/;
+        expires modified +1w;
+    }
+```   
+    
+- the second:
+add
 ```site.conf
     location /static/ {
         alias /home/www/code/metrolog/env/lib/python3.9/site-packages/django/contrib/admin/static/;
