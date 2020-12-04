@@ -547,7 +547,7 @@ Example of the command execution result (on success):
 `           'ENGINE': 'django.db.backends.postgresql_psycopg2',`\
 `           'NAME': 'metrolog_db',`\
 `           'USER': 'www_dbms',`\
-`           'PASSWORD': '1q2w!Q@W77',`\
+`           'PASSWORD': '1q2w*****7',`\
 `           'HOST': 'localhost',`\
 `           'PORT': '',`\
 `       }`\
