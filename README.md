@@ -446,7 +446,59 @@ ALTER USER www_dbms CREATEDB;
 Example of the command execution result (on success):  
 `    postgres=# ALTER USER www_dbms CREATEDB;`\
 `   ALTER ROLE`
-    
+
+- Grant privileges to a newly created database
+```postgres
+grant all privileges on database metrolog_db to www_dbms;
+```
+Example of the command execution result (on success):  
+`   postgres=# grant all privileges on database metrolog_db to www_dbms;`\
+`   GRANT`
+
+- Grant access to the user
+```postgres
+\c metrolog_db
+```
+Example of the command execution result (on success):  
+`   postgres=# \c metrolog_db`\
+`   You are now connected to database "metrolog_db" as user "postgres".`\
+`   metrolog_db=# `
+
+- Execute the command:
+```postgres
+GRANT ALL ON ALL TABLES IN SCHEMA public to www_dbms;
+GRANT ALL ON ALL SEQUENCES IN SCHEMA public to www_dbms;
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA public to www_dbms;
+CREATE EXTENSION pg_trgm;
+ALTER EXTENSION pg_trgm SET SCHEMA public;
+```
+Example of the command execution result (on success):  
+`   metrolog_db=# GRANT ALL ON ALL TABLES IN SCHEMA public to www_dbms;`\
+`   GRANT`\
+`   metrolog_db=# GRANT ALL ON ALL SEQUENCES IN SCHEMA public to www_dbms;`\
+`   GRANT`\
+`    metrolog_db=# GRANT ALL ON ALL FUNCTIONS IN SCHEMA public to www_dbms;`\
+`   GRANT`\
+`   metrolog_db=# CREATE EXTENSION pg_trgm;`\
+`    CREATE EXTENSION`\
+`   metrolog_db=# ALTER EXTENSION pg_trgm SET SCHEMA public;`\
+`   ALTER EXTENSION`\
+`   metrolog_db=#`
+
+- Enable extensions for programmatic search in the string column:
+```postgres
+UPDATE pg_opclass SET opcdefault = true WHERE opcname='gin_trgm_ops';
+```
+Example of the command execution result (on success):  
+`   metrolog_db=# UPDATE pg_opclass SET opcdefault = true WHERE opcname='gin_trgm_ops';`\
+`   UPDATE 1`\
+`   metrolog_db=#`
+
+- exit
+```postgres
+\q
+```
+
 8. In the Django Configurator, set the database settings (`src/config/settings.py`).
 ```bash
 
