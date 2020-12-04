@@ -499,7 +499,89 @@ Example of the command execution result (on success):
 \q
 ```
 
-8. In the Django Configurator, set the database settings (`src/config/settings.py`).
+8. Check the connection.
+Create a `~/.pgpass` file with the database username and password for quick connection:
+```bash
+vim ~/.pgpass
+    localhost:5432:metrolog_db:www_dbms:<your password>
+```
+Close the Vim and save result: `ESC -> : -> wq -> ENTER`
+
+Change access rights to the file:
+```bash
+vim ~/.pgpass
+chmod 600 ~/.pgpass
+```
+- Now you can log in without a password for this database!
+```bash
+psql -h localhost -U www_dbms metrolog_db
+```
+Example of the command execution result (on success):  
+`   ➜  ~ psql -h localhost -U www_dbms metrolog_db`\
+`    Пароль пользователя www_dbms:`\
+`   psql (11.10 (Debian 11.10-1.pgdg100+1))`\
+`   SSL-соединение (протокол: TLSv1.3, шифр: TLS_AES_256_GCM_SHA384, бит: 256, сжатие: выкл.)`\
+`   Введите "help", чтобы получить справку.`\
+`   `\
+`   metrolog_db=>`
+- exit
+```postgres
+\q
+```
+
+9. Run SQL dump, if you have
+```bash
+psql -h localhost metrolog_db www_dbms  < dump.sql
+```
+
+10. In the Django Configurator, set the database settings (`src/config/settings.py`).
 ```bash
 
 ```
+
+
+
+
+
+11. Create an SQL dump:
+- basic command on the local server (`the "-W " option will require you to enter a password`)
+```bash
+pg_dump -U www_dbms -W metrolog_db > /tmp/metrolog_db.dump
+```
+- command on remote server
+```bash
+pg_dump -h 10.0.0.10 metrolog_db > /tmp/metrolog_db.dump
+```
+
+12. Data compression:
+```bash
+pg_dump metrolog_db | gzip > metrolog_db.dump.gz
+```
+
+13. Script for automatic backup:
+To run a scheduled backup, save the script to a file, for example, /scripts/postgresql_dump.sh.
+```postgresql_dump.sh
+#!/bin/sh
+PATH=/etc:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+
+PGPASSWORD=password
+export PGPASSWORD
+pathB=/backup
+dbUser=www_dbms
+database=metrolog_db
+
+find $pathB \( -name "*-1[^5].*" -o -name "*-[023]?.*" \) -ctime +61 -delete
+pg_dump -U $dbUser $database | gzip > $pathB/pgsql_$(date "+%Y-%m-%d").sql.gz
+
+unset PGPASSWORD
+```
+`password` - password for connecting to postgresql;
+`/backup` - the folder where backups will be stored;
+`www_dbms` — name of the account to connect to the DBMS.
+The script will delete all backups older than 61 days, but will leave the 15th as a long archive. After that, the pg_dump utility will be used to connect and reserve the `metrolog_db` database. The password is exported to the system variable at the time of the task execution.
+
+- Create a task in the scheduler:
+```bash
+3 0 * * * /scripts/postgresql_dump.sh
+```
+The script will run every day at 03:00.
