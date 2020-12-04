@@ -536,12 +536,24 @@ psql -h localhost metrolog_db www_dbms  < dump.sql
 
 10. In the Django Configurator, set the database settings (`src/config/settings.py`).
 ```bash
-
+vim src/config/settings.py
 ```
+Example of the command execution result (on success):  
 
-
-
-
+# Database
+`...`\
+`# https://docs.djangoproject.com/en/2.2/ref/settings/#databases`\
+`   DATABASES = {`\
+`       'default': {`\
+`           'ENGINE': 'django.db.backends.postgresql_psycopg2',`\
+`           'NAME': 'metrolog_db',`\
+`           'USER': 'www_dbms',`\
+`           'PASSWORD': '1q2w!Q@W77',`\
+`           'HOST': 'localhost',`\
+`           'PORT': '',`\
+`       }`\
+`   }`\
+`...`\
 
 11. Create an SQL dump:
 - basic command on the local server (`the "-W " option will require you to enter a password`)
